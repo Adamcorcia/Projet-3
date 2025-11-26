@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Exemple : tableau avec colonnes</title>
+    <style>
+        /* Style basique pour un tableau lisible */
+        table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; }
+        thead th {
+            background:#f0f0f0;
+            text-align:left;
+            padding:10px;
+            border-bottom:2px solid #ddd;
+        }
+        tbody td {
+            padding:8px 10px;
+            border-bottom:1px solid #eee;
+        }
+        /* Définir des largeurs de colonne (facultatif) */
+        colgroup col:nth-child(1) { width: 30%; } /* Nom */
+        colgroup col:nth-child(2) { width: 10%; } /* Âge */
+        colgroup col:nth-child(3) { width: 30%; } /* Ville */
+        colgroup col:nth-child(4) { width: 30%; } /* Profession */
+        /* Réactivité : empiler les cellules sur très petits écrans */
+        @media (max-width:480px) {
+            table, thead, tbody, th, td, tr { display:block; }
+            thead { display:none; }
+            tr { margin-bottom:12px; border:1px solid #eee; padding:8px; }
+            td { display:flex; justify-content:space-between; padding:6px 8px; }
+            td::before { content: attr(data-label); font-weight:600; margin-right:10px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Exemple de tableau avec colonnes -->
+    <table>
+        <colgroup>
+            <col />
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Âge</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Profession</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Nom">Dupont, Marie</td>
+                <td data-label="Âge">34</td>
+                <td data-label="Ville">Lyon</td>
+                <td data-label="Profession">Designer</td>
+            </tr>
+            <tr>
+                <td data-label="Nom">Martin, Paul</td>
+                <td data-label="Âge">28</td>
+                <td data-label="Ville">Paris</td>
+                <td data-label="Profession">Développeur</td>
+            </tr>
+            <tr>
+                <td data-label="Nom">Nguyen, Linh</td>
+                <td data-label="Âge">41</td>
+                <td data-label="Ville">Marseille</td>
+                <td data-label="Profession">Chef de projet</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
