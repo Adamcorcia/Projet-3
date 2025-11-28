@@ -1,0 +1,4 @@
+hunter.io api
+cloudflare
+openweathermap
+il suffit d inserer la cle api dnas le code php 
